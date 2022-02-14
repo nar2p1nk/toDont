@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo-app</title>
+    <link rel="stylesheet" href="http://127.0.0.1:8080/static/css/todo.css">
+</head>
+<body>
+    <div class="app">
+        <h1>Todo app</h1>
+        <div class="post">
+            <form action="http://127.0.0.1:8080/" method='POST'>
+                <input type="text" name='todo' required>
+                <button type='submit' value='submit'>Submit</button>
+            </form>
+            <div class="list">
+                <h2>Tasks to complete:</h2>
+                <form action="http://127.0.0.1:8080/check/" method='POST'>
+                    <ul>
+                        <% for (todo in data) { %>
+                            <h3>
+                                <label for="data"><%= data[todo].todo %></label>
+                                <input type="checkbox" name='todo' value=<%= data[todo].Id %>>
+                            </h3>
+                        <% } %>
+                    </ul>
+                    <button type='submit' value='submit' class='check'>check Tasks</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
