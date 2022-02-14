@@ -27,12 +27,17 @@ app.use(session({
 
 app.use(passport.authenticate('session'));
 
-app.get('/home',(req,res)=>{
-    res.send('suck dick')
+app.get('/',checkAuth,(req,res)=>{
+    res.send(req.user)
 })
 
-app.get('/login',(req,res)=>{
-    res.sendFile(__dirname + '/views/index.html')
+app.get('/logout',(req,res)=>{
+    req.logout();
+    res.redirect('/login')
+})
+
+app.get('/login',checkNotAuth,(req,res)=>{
+    res.render('login.ejs')
 })
 app.post('/login',passport.authenticate('local',{
     successRedirect:'/ass',
@@ -44,6 +49,28 @@ app.post('/login',passport.authenticate('local',{
 //    console.log('poll')
 //})
 
+
+//app.post('/login',(req,res)=>{
+//    console.log('poll')
+//})
+
+function checkAuth(req,res,next){
+    if(req.isAuthenticated){
+        return next()
+    }
+    else{
+        console.log('can\'t go here, not logged in')
+        res.redirect('/login')
+    }
+}
+
+function checkNotAuth(req,res,next){
+    if(req.isAuthenticated){
+        console.log('can\'t go here, you\'re logged in')
+        res.redirect('/')
+    }
+    else{return next()}
+}
 
 app.listen(8080,()=>{
     console.log('server at localhost:8080')

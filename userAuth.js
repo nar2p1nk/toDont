@@ -7,15 +7,16 @@ require('./database');
 function init(passport){
     function auth(username,password,done){
         db.get(`SELECT Id,username,password FROM user WHERE username = ?`,[username],
-            (err,row)=>{
-                if(!row){
-                    done(null,false,{message:'user not found'})
+           async (err,row)=>{
+                if(row == null){
+                    return done(null,false,{message:'user not found'})
                 }
                 try{
-                    if(bcrypt.compareSync(password,row.password)){
+                    if(await bcrypt.compare(password,row.password)){
                         return done(null,row)
                     }
                     else{
+                        console.log('incorrect password')
                         return done(null,false,{message:'incorrect password'})
                     }
                 }
