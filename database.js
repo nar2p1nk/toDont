@@ -26,6 +26,8 @@ function createTodos(userId,todo){
     )
 }
 
-createTodos(2,'make pancakes')
+
+module.export = (db,createUser,createTodos)
+
 // id 1 emilia pornies
-//'helipadter','nightMareZoney'
+// id 2 'helipadter','nightMareZoney'
