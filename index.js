@@ -24,20 +24,25 @@ app.use(session({
     saveUninitialized:false,
     store: new SQLiteStore({db: 'sessions.db',dir:'./'})
 }))
-
+app.use(flash())
 app.use(passport.initialize())
 
 app.use(passport.authenticate('session'));
 
 app.get('/',checkAuth,(req,res)=>{
-    db.all(`SELECT Id,todo FROM todos WHERE userId = ?`,[req.user.Id],
-        (err,rows)=>{
-        if(err){console.error(err.message)}
-        else{
-            console.log(rows[1])
-            res.render('main.ejs',{data:rows})
-        }
+    res.redirect('/user/' + req.user.id)
+})
+
+app.get('/user/:userId',checkAuth,(req,res)=>{
+    const id = req.params.userId;
+    if(id != req.user.id){
+        res.redirect(`/user/${req.user.id}`)
+    }
+    else{
+    db.all(`SELECT * FROM todos WHERE userId = ?`,[id],(err,rows)=>{
+        res.json(rows)
     })
+    }
 })
 
 app.get('/logout',(req,res)=>{
@@ -51,7 +56,7 @@ app.get('/login',checkNotAuth,(req,res)=>{
 app.post('/login',passport.authenticate('local',{
     successRedirect:'/',
     failureRedirect:'/login',
-    failureFlash:false
+    failureFlash:true
 }))
 
 //app.post('/login',(req,res)=>{

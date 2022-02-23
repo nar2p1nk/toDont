@@ -9,6 +9,9 @@
     <div class="app">
             <form action="http://localhost:8080/login" method='POST' class='login-card'>
                 <h1>Login</h1>
+                <% if(messages.error) { %>
+                <%= messages.error %>
+                <% } %>
                 <h2><label for="username">Username:</label><br>
                     <input type="username" name='username'>
                 </h2>
