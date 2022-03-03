@@ -40,7 +40,7 @@ app.get('/user/:userId',checkAuth,(req,res)=>{
     }
     else{
     db.all(`SELECT * FROM todos WHERE userId = ?`,[id],(err,rows)=>{
-        res.json(rows)
+        res.render('main.ejs',{data:rows})
     })
     }
 })
@@ -58,6 +58,10 @@ app.post('/login',passport.authenticate('local',{
     failureRedirect:'/login',
     failureFlash:true
 }))
+
+app.post('/',(req,res)=>{
+    db.run(`INSERT INTO todos VALUES(?)`,[req.body.todo],()=>{console.log(`insert into database todo ${req.body.todo}`)})
+})
 
 //app.post('/login',(req,res)=>{
 //    console.log('poll')
