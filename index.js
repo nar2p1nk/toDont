@@ -59,9 +59,17 @@ app.post('/login',passport.authenticate('local',{
     failureFlash:true
 }))
 
-app.post('/',(req,res)=>{
-    db.run(`INSERT INTO todos VALUES(?)`,[req.body.todo],()=>{console.log(`insert into database todo ${req.body.todo}`)})
+app.post('/',checkAuth,(req,res)=>{
+    const id = req.user.id;
+    db.run(`INSERT INTO todos(todo) VALUES(?)`,[req.body.todo],(err)=>{
+        if(err){console.error(err.message);res.json({SQLError:err.message})}
+       else{
+        console.log(`insert into database todo ${req.body.todo}`);
+        res.redirect(`/user/${id}`)
+       }
+    })
 })
+    
 
 //app.post('/login',(req,res)=>{
 //    console.log('poll')
