@@ -9,17 +9,19 @@ const routes = [
     redirect:{name: 'login'}
   },
   {
-    path: '/login',
+    path: '/login/',
     name: 'login',
-    component: userForm
+    component: userForm,
+    props:{
+      default:true,
+
+      loginOrRegister:true
+    }
   },
   {
     path: '/todos',
     name: 'todos',
     component:todoList
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
   }
 ]
 
