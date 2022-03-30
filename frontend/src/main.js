@@ -1,4 +1,7 @@
-import { createApp } from 'vue';
-import todoApp from './todoApp.vue'
+//import todoApp from './todoApp.vue';
+import App from './App.vue';
+import router from './router';
 
-createApp(todoApp).mount('#app')
+import {createApp} from 'vue';
+
+createApp(App).use(router).mount('#app')
