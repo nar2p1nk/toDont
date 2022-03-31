@@ -17,15 +17,21 @@ userId INTEGER,
 FOREIGN KEY(userId) REFERENCES user(id)
 );`).run()
 
-const createUser = (username,password)=>{
+function createUser(username,password){
     const hashedPassword = bcrypt.hashSync(password,10);
     db.prepare(`INSERT INTO
     user(username,password) VALUES(?,?)`).run(username,hashedPassword);
 };
 
-const createtodo = (todo,userId)=>{
+function createtodo(todo,userId){
     db.prepare(`INSERT INTO todos(todo,userId) VALUES(?,?)`).run(todo,userId)
 }
+
+
+//createUser('emilia','amelia')
+//createUser('acekiller','of8Hearts')
+
+
 
 
 
