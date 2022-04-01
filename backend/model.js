@@ -27,6 +27,21 @@ function createtodo(todo,userId){
     db.prepare(`INSERT INTO todos(todo,userId) VALUES(?,?)`).run(todo,userId)
 }
 
+function findUserByUsername(username){
+    const user = db.prepare(`SELECT * FROM user WHERE username = ?`).get(username);
+    return user
+}
+
+function findUserById(userId){
+    const user = db.prepare(`SELECT * FROM user WHERE id = ?`).get(userId);
+    return user
+}
+
+function findTodoById(todoId){
+    const user = db.prepare(`SELECT * FROM user WHERE userId = ?`).get(todoId);
+    return user
+}
+
 
 //createUser('emilia','amelia')
 //createUser('acekiller','of8Hearts')
