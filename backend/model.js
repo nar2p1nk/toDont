@@ -37,9 +37,17 @@ function findUserById(userId){
     return user
 }
 
-function findTodoById(todoId){
-    const user = db.prepare(`SELECT * FROM user WHERE userId = ?`).get(todoId);
+function findTodoByuserId(userId){
+    const user = db.prepare(`
+    SELECT * FROM user WHERE userId = ?`).get(userId);
     return user
+}
+
+module.exports = {
+    createUser,
+    createtodo,
+    findUserByUsername,
+    findUserById
 }
 
 
