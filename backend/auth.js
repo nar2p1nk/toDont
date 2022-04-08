@@ -10,14 +10,19 @@ passport.use(
             passwordField:'password'
         },
         (username,password,done)=>{
+            console.log('passport login')
             try{
                 const user = userC.findUserByUsername(username)
                 if(!user){
                     return done(null,false,{message:'no user found'})
+                    console.log('no user found')
                 }
 
                 const validate = bcrypt.compareSync(password, user.password)
-                if(!validate)return done(null,false,{message:'wrong password'})
+                if(!validate){
+                    done(null,false,{message:'wrong password'})
+                    console.log('wrong password')
+            }
                 return done(null,false,{message:'user authenticated'})
 
             }
