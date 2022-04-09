@@ -12,7 +12,14 @@ const app = express();
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json())
 
-app.post('/log/login',(req,res)=>{
+
+app.get('/',(req,res)=>{
+    res.json({status:200})
+})
+
+
+app.post('/login',(req,res,next)=>{
+    console.log('middleware')
 passport.authenticate(
     'login',
     (err,user,info)=>{
@@ -22,23 +29,25 @@ passport.authenticate(
                 const error = new Error('An error has ocor');
                 console.log(info.message)
                 res.json({message:info.message})
+                return next(err)
             }
             console.log('user confirmed')
             req.login(
                 user,
                 {session:false},
                 (err)=>{
-                    if(error) return res.status(400).json({error:err});
+                    if(err) return next(err)
                     const body = {id:user.id,username:user.username};
                     const token = jwt.sign(body,'gila');
                     return res.json({token})
                 }
             )
         }
-        catch{}
+        catch(err){return(next(err))}
     }
 )
-})
+    console.log('middleware after')
+})//,(req,res))
 
 
 

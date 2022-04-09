@@ -14,8 +14,8 @@ passport.use(
             try{
                 const user = userC.findUserByUsername(username)
                 if(!user){
-                    return done(null,false,{message:'no user found'})
                     console.log('no user found')
+                    return done(null,false,{message:'no user found'})
                 }
 
                 const validate = bcrypt.compareSync(password, user.password)
