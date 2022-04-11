@@ -12,42 +12,82 @@ const app = express();
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json())
 
+//app.use(expressjwt({secret:'gila',algorithms:['HS256']}))
 
-app.get('/',(req,res)=>{
+app.get(
+    '/',
+  expressjwt({secret:'gila',algorithms:['HS256']}),
+    (req,res)=>{
     res.json({status:200})
 })
 
 
-app.post('/login',(req,res,next)=>{
-    console.log('middleware')
-passport.authenticate(
-    'login',
-    (err,user,info)=>{
-        console.log('app post')
-        try{
-            if(!user){
-                const error = new Error('An error has ocor');
-                console.log(info.message)
-                res.json({message:info.message})
-                return next(err)
-            }
-            console.log('user confirmed')
-            req.login(
-                user,
-                {session:false},
-                (err)=>{
-                    if(err) return next(err)
-                    const body = {id:user.id,username:user.username};
-                    const token = jwt.sign(body,'gila');
-                    return res.json({token})
+
+
+app.post(
+    '/login',
+    (req,res,next)=>{
+        passport.authenticate(
+            'login',
+             (err,user,info)=>{
+                try{
+                    if(!user){
+                        const error = new Error('An error has occurred')
+                        res.json({message:info.message})
+                        return next(error)
+                    }
+                    req.login(
+                        user,
+                        {session:false},
+                         (err) =>{
+                            if(err) return next(err);
+                             console.log(user.id,user.username)
+                            const body = {id:user.id,username:user.username};
+                            const token = jwt.sign(body,'gila');
+                            return res.json({token});
+                        }
+                    );
                 }
-            )
-        }
-        catch(err){return(next(err))}
+                catch(err){return next(err)}
+            }
+    )(req,res);
     }
 )
-    console.log('middleware after')
-})//,(req,res))
+
+// THIS CODE DOESN'T WORK, FIND OUT WHY
+//
+//app.post('/login',(req,res,next)=>{
+//    console.log('middleware')
+//passport.authenticate(
+//    'login',
+//    (err,user,info)=>{
+//        console.log('app post')
+//        try{
+//            if(!user){
+//                const error = new Error('An error has ocor');
+//                console.log(info.message)
+//                res.json({message:info.message})
+//                return next(error)
+//            }
+//            console.log('user confirmed')
+//            req.login(
+//                user,
+//                {session:false},
+//                (err)=>{
+//                    if(err) return next(err)
+//                    console.log(user.id,user.username)
+//                    const body = {id:user.id,username:user.username};
+//                    const token = jwt.sign(body,'gila');
+//                    return res.json({token})
+//                }
+//            )
+//        }
+//        catch(err){return(next(err))}
+//    }
+//)
+//    console.log('middleware after')
+//})//,(req,res))
+
 
 
 

@@ -1,7 +1,7 @@
 const sqlite = require('better-sqlite3');
 const bcrypt = require('bcrypt');
 
-const db = new sqlite('userTodo.db');
+const db = new sqlite('/home/antagonist/codingsnuff/javascript/toDont/backend/userTodo.db');
 
 db.prepare(`CREATE TABLE IF NOT EXISTS user(
 id INTEGER PRIMARY KEY NOT NULL,
