@@ -41,7 +41,7 @@ function findUserById(userId){
 
 function findTodoByuserId(userId){
     const user = db.prepare(`
-    SELECT * FROM user WHERE userId = ?`).get(userId);
+    SELECT * FROM todos WHERE userId = ?`).all(userId);
     return user
 }
 
@@ -49,7 +49,8 @@ module.exports = {
     createUser,
     createtodo,
     findUserByUsername,
-    findUserById
+    findUserById,
+    findTodoByuserId,
 }
 
 

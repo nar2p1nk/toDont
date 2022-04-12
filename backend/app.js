@@ -7,6 +7,7 @@ require('./auth')
 const expressjwt = require('express-jwt');
 const sqlite = require('better-sqlite3');
 const routes = require('./routes');
+const {findTodoByuserId} = require('./model');
 const app = express();
 
 //app.use(expressjwt({secret:'gila',algorithms:['HS256']}))
@@ -24,6 +25,11 @@ app.get(
         id:req.user.id,
         username:req.user.username
     })
+})
+
+app.get('/todo/:userId',(req,res)=>{
+    const todo = findTodoByuserId(req.params.userId)
+    res.json(todo)
 })
 
 
