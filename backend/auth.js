@@ -23,10 +23,13 @@ passport.use(
                     done(null,false,{message:'wrong password'})
                     console.log('wrong password')
             }
-                return done(null,false,{message:'user authenticated'})
+                return done(null,user,{message:'user authenticated'})
 
             }
             catch(e){return done(e)}
         }
     )
 )
+
+
+

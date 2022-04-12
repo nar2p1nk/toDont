@@ -14,13 +14,18 @@ const app = express();
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json())
 
+
+
 //app.use(expressjwt({secret:'gila',algorithms:['HS256']}))
 
 app.get(
     '/',
   expressjwt({secret:'gila',algorithms:['HS256']}),
     (req,res)=>{
-    res.json({status:200})
+    res.json({
+        id:req.user.id,
+        username:req.user.username
+    })
 })
 
 
@@ -45,6 +50,7 @@ app.post(
                             if(err) return next(err);
                              console.log(user.id,user.username)
                             const body = {id:user.id,username:user.username};
+                             req.user = body;
                             const token = jwt.sign(body,'gila');
                             return res.json({token});
                         }
@@ -91,7 +97,6 @@ app.post(
 //})//,(req,res))
 
 
->>>>>>> 7938013166211612fa048f466e84facdb7724b2f
 
 
 

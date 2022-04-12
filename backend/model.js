@@ -1,7 +1,9 @@
 const sqlite = require('better-sqlite3');
 const bcrypt = require('bcrypt');
 
-const db = new sqlite('userTodo.db');
+const path = __dirname + '/userTodo.db';
+
+const db = new sqlite(path);
 
 db.prepare(`CREATE TABLE IF NOT EXISTS user(
 id INTEGER PRIMARY KEY NOT NULL,
