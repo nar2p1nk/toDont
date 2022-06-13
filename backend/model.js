@@ -6,17 +6,18 @@ const path = __dirname + '/userTodo.db';
 const db = new sqlite(path);
 
 db.prepare(`CREATE TABLE IF NOT EXISTS user(
-id INTEGER PRIMARY KEY NOT NULL,
+userId INTEGER PRIMARY KEY NOT NULL,
 username TEXT NOT NULL,
 password TEXT NOT NULL
 );`).run()
 
 
 db.prepare(`CREATE TABLE IF NOT EXISTS todos(
-Id INTEGER PRIMARY KEY NOT NULL,
+todoId INTEGER PRIMARY KEY NOT NULL,
 todo TEXT NOT NULL,
+completed BOOLEAN NOT NULL CHECK (completed IN (0,1)),
 userId INTEGER,
-FOREIGN KEY(userId) REFERENCES user(id)
+FOREIGN KEY(userId) REFERENCES user(userId)
 );`).run()
 
 function createUser(username,password){

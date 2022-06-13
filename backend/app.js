@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken');
 require('./model');
 require('./auth')
 const expressjwt = require('express-jwt');
-const sqlite = require('better-sqlite3');
 const {findTodoByuserId} = require('./model');
 const app = express();
 
