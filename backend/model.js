@@ -26,10 +26,6 @@ function createUser(username,password){
     user(username,password) VALUES(?,?)`).run(username,hashedPassword);
 };
 
-function createtodo(todo,userId){
-    db.prepare(`INSERT INTO todos(todo,userId) VALUES(?,?)`).run(todo,userId)
-}
-
 function findUserByUsername(username){
     const user = db.prepare(`SELECT * FROM user WHERE username = ?`).get(username);
     return user
@@ -40,6 +36,20 @@ function findUserById(userId){
     return user
 }
 
+function createtodo(todoId,userId){
+    db.prepare(`
+    INSERT INTO todos(todo,userId) VALUES(?,?)`).run(todoId,userId)
+}
+
+function completeTodo(todoId){
+    db.prepare(`UPDATE todos SET completed = 1 WHERE todoId = ?`).run(todoId)
+}
+
+function deleteTodo(todoId){
+    db.prepare(`DELETE FROM todos WHERE todoId = ?`).run(todoId)
+}
+
+
 function findTodoByuserId(userId){
     const user = db.prepare(`
     SELECT * FROM todos WHERE userId = ?`).all(userId);
@@ -48,9 +58,11 @@ function findTodoByuserId(userId){
 
 module.exports = {
     createUser,
-    createtodo,
     findUserByUsername,
     findUserById,
+    createtodo,
+    completeTodo,
+    deleteTodo,
     findTodoByuserId,
 }
 
