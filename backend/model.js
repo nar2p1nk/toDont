@@ -36,9 +36,9 @@ function findUserById(userId){
     return user
 }
 
-function createtodo(todoId,userId){
+function createtodo(todo,userId){
     db.prepare(`
-    INSERT INTO todos(todo,userId) VALUES(?,?)`).run(todoId,userId)
+    INSERT INTO todos(todo,userId) VALUES(?,?)`).run(todo,userId)
 }
 
 function completeTodo(todoId){
@@ -51,9 +51,10 @@ function deleteTodo(todoId){
 
 
 function findTodoByuserId(userId){
-    const user = db.prepare(`
+    console.log(userId)
+    const todos = db.prepare(`
     SELECT * FROM todos WHERE userId = ?`).all(userId);
-    return user
+    return todos
 }
 
 module.exports = {
@@ -69,7 +70,8 @@ module.exports = {
 
 //createUser('emilia','amelia')
 //createUser('acekiller','of8Hearts')
-
+//createUser('testicle','plural')
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RpY2xlIiwiaWF0IjoxNjU1MTY2NjA5fQ.FQnZnECnHGc2MElp2ImAhgdjaVb7bcFL0wZhZj7vZsE
 
 
 

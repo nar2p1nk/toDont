@@ -1,14 +1,10 @@
 const bodyParser = require('body-parser');
 const express = require('express');
-const passport = require('passport');
-const jwt = require('jsonwebtoken');
-require('./model');
 require('./auth')
 const expressjwt = require('express-jwt');
-const {findTodoByuserId} = require('./model');
+const model = require('./model');
 const app = express();
 
-//app.use(expressjwt({secret:'gila',algorithms:['HS256']}))
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json())
@@ -16,14 +12,21 @@ app.use(bodyParser.json())
 const secure = expressjwt({secret:'gila',algorithms:['HS256']});
 
 
+app.post('/signup',(req,res)=>{
+    model.createUser(req.body.username,req.body.password);
+    res.json({'user has been created':req.body.username});
+})
+
+const loginRoute = require('./loginRoute');
+app.use(loginRoute)
+
+
+
 app.get(
     '/',
     secure,
     (req,res)=>{
-        res.json({
-            id:req.user.id,
-            username:req.user.username
-          })
+        res.json(req.user)
 })
 
 app.get('/todo',
@@ -38,43 +41,23 @@ app.get('/todo/:userId',
         if(req.params.userId != req.user.id){
             req.params.userId = req.user.id
         }
-        const todo = findTodoByuserId(req.params.userId)
+        const todo = model.findTodoByuserId(req.params.userId)
+        console.log(todo)
         res.json(todo)
 })
 
+app.post('/todo/create',
+    secure,
+    (req,res)=>{
+        if(req.body.todo == 0 || req.body.todo == undefined ){
+            res.json('please type something')
+            return;
+        }
+        model.createtodo(req.body.todo,req.user.id)
+        const todo = [req.body.todo,req.user.id]
+        res.json(todo)
+})
 
-
-
-app.post(
-    '/login',
-    (req,res,next)=>{
-        passport.authenticate(
-            'login',
-             (err,user,info)=>{
-                try{
-                    if(!user){
-                        const error = new Error('An error has occurred')
-                        res.json({message:info.message})
-                        return next(error)
-                    }
-                    req.login(
-                        user,
-                        {session:false},
-                         (err) =>{
-                            if(err) return next(err);
-                             console.log(user.id,user.username)
-                            const body = {id:user.id,username:user.username};
-                             req.user = body;
-                            const token = jwt.sign(body,'gila');
-                            return res.json({token});
-                        }
-                    );
-                }
-                catch(err){return next(err)}
-            }
-    )(req,res);
-    }
-)
 
 
 

@@ -10,7 +10,6 @@ passport.use(
             passwordField:'password'
         },
         (username,password,done)=>{
-            console.log('passport login')
             try{
                 const user = userC.findUserByUsername(username)
                 if(!user){
