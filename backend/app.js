@@ -58,9 +58,28 @@ app.post('/todo/create',
         res.json(todo)
 })
 
+app.post('/todo/complete',
+    secure,
+    (req,res)=>{
+        const idsToComplete = req.body.list;
+        for(let id in idsToComplete){
+            model.completeTodo(idsToComplete[id])
+        }
+        res.json({todos:'completed'})
+    }
+)
 
 
-
+app.post('/todo/delete',
+    secure,
+    (req,res)=>{
+        const idsToDelete = req.body.list;
+        for(let id in idsToDelete){
+            model.deleteTodo(idsToDelete[id])
+        }
+        res.json({todos:'deleted'})
+    }
+)
 
 
 
