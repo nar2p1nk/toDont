@@ -38,7 +38,7 @@ function findUserById(userId){
 
 function createtodo(todo,userId){
     db.prepare(`
-    INSERT INTO todos(todo,userId) VALUES(?,?)`).run(todo,userId)
+    INSERT INTO todos(todo,userId,completed) VALUES(?,?,0)`).run(todo,userId)
 }
 
 function completeTodo(todoId){
