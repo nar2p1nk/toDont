@@ -1,4 +1,5 @@
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const express = require('express');
 require('./auth')
 const expressjwt = require('express-jwt');
@@ -8,8 +9,14 @@ const app = express();
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json())
+app.use(cookieParser());
+
 
 const secure = expressjwt({secret:'gila',algorithms:['HS256']});
+
+
+
+
 
 
 app.post('/signup',(req,res)=>{
@@ -81,6 +88,16 @@ app.post('/todo/delete',
     }
 )
 
+app.get('/header',
+    secure,
+    (req,res)=>{res.json(req.header('Authorization'))}
+)
+
+
+app.get('/cookie',
+    secure,
+    (req,res)=>{res.json(req.cookies)}
+)
 
 
 app.listen(8080,()=>{

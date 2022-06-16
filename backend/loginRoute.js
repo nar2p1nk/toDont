@@ -29,6 +29,11 @@ router.post(
                              req.user = body;
                              console.log(req.user,body)
                              const token = jwt.sign(body,'gila');
+                             res.cookie('jwt',token,{
+                                 httpOnly:true,
+//                                 secure:true,
+                                 maxAge: 3600000
+                             })
                              return res.json({user:req.user,token:token});
                         }
                     );
