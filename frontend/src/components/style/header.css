@@ -1,0 +1,22 @@
+.nav, .nav-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.nav{
+    padding: 0 60px;
+    border-bottom: 1px solid white;
+}
+ul{
+    list-style: none;
+}
+
+.nav-item{
+    width: max-content;
+    padding: 0 30px;
+    margin: auto;
+}
+.nav-link{
+    color: white;
+    text-decoration: none;
+}
