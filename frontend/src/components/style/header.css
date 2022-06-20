@@ -7,6 +7,13 @@
     padding: 0 60px;
     border-bottom: 1px solid white;
 }
+
+.title{
+    height: min-content;
+    padding-top: 30px;
+    margin: 0;
+}
+
 ul{
     list-style: none;
 }
