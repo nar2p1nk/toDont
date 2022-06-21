@@ -1,5 +1,13 @@
+import './style/main.css';
 const main = () => {
-    return null
+    return (
+        <div className="main">
+            <div className="intro">
+                <h1>hello</h1>
+            </div>
+        </div>
+        
+    )
 }
 
 export default main
