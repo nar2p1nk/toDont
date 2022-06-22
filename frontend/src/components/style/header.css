@@ -4,7 +4,6 @@ a{
 }
 
 .nav{
-    background-color: plum;
     width: 100%;
     height: max-content;
     overflow: hidden;
@@ -17,7 +16,7 @@ a{
 .title{
     font-size: 30px;
     float: left;
-    margin: 4px 0 0 50px
+    margin: 4px 0 0 50px;
 }
 
 
