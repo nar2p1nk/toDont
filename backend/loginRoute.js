@@ -14,7 +14,7 @@ router.post(
                 try{
                     if(!user){
                         const error = new Error('An error has occurred')
-                        res.json({message:info.message})
+                        res.json({errMessage:info.message})
                         return next(error)
                     }
                     req.login(
@@ -34,7 +34,7 @@ router.post(
 //                                 secure:true,
                                  maxAge: 3600000
                              })
-                             return res.json({user:req.user,token:token});
+                             return res.json({token:token});
                         }
                     );
                 }

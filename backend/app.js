@@ -5,12 +5,12 @@ require('./auth')
 const expressjwt = require('express-jwt');
 const model = require('./model');
 const app = express();
-
+const cors = require('cors');
 
 app.use(bodyParser.urlencoded({extended:false}));
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 app.use(cookieParser());
-
+app.use(cors())
 
 const secure = expressjwt({secret:'gila',algorithms:['HS256']});
 

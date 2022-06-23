@@ -1,5 +1,16 @@
 import './style/main.css';
-const main = () => {
+import axios from 'axios';
+import {useEffect} from 'react';
+
+
+const Main = () => {
+
+useEffect(()=>{
+    axios.get('http://localhost:8080')
+        .then((res)=>{
+            console.log(res.data)
+        })
+})
     return (
         <div className="main">
             <div className="intro">
@@ -10,4 +21,4 @@ const main = () => {
     )
 }
 
-export default main
+export default Main

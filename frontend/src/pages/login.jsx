@@ -1,10 +1,11 @@
 import {useState} from 'react';
 import './style/login.css';
-
+import axios from 'axios';
 const Login = () => {
 
     const [username,setUsername] = useState('');
     const [password,setPassword] = useState('');
+    const [errorMessage,setErrorMessage] = useState('');
 
     const onChange = (e,useState,setUseState)=>{
         setUseState(e.target.value)
@@ -13,6 +14,23 @@ const Login = () => {
 
     const postForm = (e) => {
         e.preventDefault()
+
+        axios.post('http://127.0.0.1:8080/login',{
+            username:username,
+            password:password
+        })
+            .then((res)=>{
+                if(res.data.errMessage){
+                    setErrorMessage(res.data.errMessage)
+                    console.log(errorMessage)
+                }
+                if(res.data.token){
+                    console.log(res.data.token)
+                    sessionStorage.setItem('jwtToken', res.data.token)
+                }
+            })
+            .catch((err)=>{console.log(err)})
+
         console.log(username,password)
     }
 
@@ -22,7 +40,7 @@ const Login = () => {
             <form action="" method='POST' className='login-card'
                 onSubmit={postForm}>
                 <h1>Login</h1>
-                <p className='login-error'></p>
+                <p className='login-error'>{errorMessage}</p>
                 <h2>
                     <label htmlFor="username">Username:</label><br />
                     <input
