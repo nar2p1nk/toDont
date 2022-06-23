@@ -1,32 +1,54 @@
+import {useState} from 'react';
 import './style/login.css';
 
-const login = () => {
+const Login = () => {
+
+    const [username,setUsername] = useState('');
+    const [password,setPassword] = useState('');
+
+    const onChange = (e,useState,setUseState)=>{
+        setUseState(e.target.value)
+        console.log(useState)
+    }
+
+    const postForm = (e) => {
+        e.preventDefault()
+        console.log(username,password)
+    }
+
     return (
-    <div class="login">
-        <form action="" method='POST' class='login-card' onSubmit={(e)=>{e.preventDefault()}}>
+
+        <div className="login">
+            <form action="" method='POST' className='login-card'
+                onSubmit={postForm}>
                 <h1>Login</h1>
+                <p className='login-error'></p>
                 <h2>
-                    <label for="username">Username:</label><br />
+                    <label htmlFor="username">Username:</label><br />
                     <input
                         type="username"
                         name='username'
                         placeholder='Username'
-                        class='login-input username'
+                        className='login-input username'
+                        onChange={e => onChange(e,username,setUsername)}
+                        value={username}
                     />
                 </h2>
                 <h2>
-                    <label for="password">Password:</label><br />
+                    <label htmlFor="password">Password:</label><br />
                     <input
                         type="password"
                         name='password'
                         placeholder='Password'
-                        class='login-input password'
+                        className='login-input password'
+                        onChange={e=>onChange(e,password,setPassword)}
+                        value={password}
                     />
                 </h2>
                 <button
                     type='submit'
                     value='submit'
-                    class='login-submit'
+                    className='login-submit'
                 >
                 Submit</button>
             </form>
@@ -34,4 +56,4 @@ const login = () => {
     )
 }
 
-export default login
+export default Login

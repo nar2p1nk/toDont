@@ -20,7 +20,9 @@
     height: 400px;
     width: 400px;
 }
-
+.login-error{
+    margin: 0;
+}
 .login-input{
     padding: 0 5px;
     height: 25px;
@@ -31,7 +33,7 @@
 
 .login-submit{
     font-size: large;
-    margin-top: 10px;
+    margin-top: 0px;
     width: 35%;
     height: 50px;
     border-radius: 20px;
