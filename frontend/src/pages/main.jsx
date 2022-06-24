@@ -1,7 +1,9 @@
 import './style/main.css';
 import axios from 'axios';
 import {useEffect} from 'react';
+import {Navigate} from 'react-router-dom';
 
+const token = sessionStorage.getItem('jwtToken');
 
 const Main = () => {
 
@@ -13,6 +15,7 @@ useEffect(()=>{
 })
     return (
         <div className="main">
+            {token && (<Navigate to='/login' replace/>)}
             <div className="intro">
                 <h1>hello</h1>
             </div>

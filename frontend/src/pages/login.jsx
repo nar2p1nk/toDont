@@ -12,9 +12,8 @@ const Login = () => {
         console.log(useState)
     }
 
-    const postForm = (e) => {
+    const PostForm = (e) => {
         e.preventDefault()
-
         axios.post('http://127.0.0.1:8080/login',{
             username:username,
             password:password
@@ -32,13 +31,14 @@ const Login = () => {
             .catch((err)=>{console.log(err)})
 
         console.log(username,password)
+
     }
 
     return (
 
         <div className="login">
             <form action="" method='POST' className='login-card'
-                onSubmit={postForm}>
+                onSubmit={PostForm}>
                 <h1>Login</h1>
                 <p className='login-error'>{errorMessage}</p>
                 <h2>

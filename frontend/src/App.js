@@ -11,12 +11,15 @@ const token = sessionStorage.getItem('jwtToken')
 axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 
 function App() {
+
   return (
     <BrowserRouter>
       <Header/>
       <Routes>
         <Route path='/' element={<Main/>} />
         <Route path='/login' element={<Login />}/>
+        <Route path='/app' element=''/>
+        <Route path='/about'/>
       </Routes>
     </BrowserRouter>
   );
