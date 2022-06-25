@@ -1,8 +1,12 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import './style/login.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+
+
 const Login = () => {
+
+    const token = sessionStorage.getItem('jwtToken');
 
     let navigate = useNavigate();
 
@@ -38,6 +42,11 @@ const Login = () => {
 
     }
 
+    useEffect(()=>{
+        if(token !== null){
+            navigate('/')
+        }
+    })
     return (
 
         <div className="login">

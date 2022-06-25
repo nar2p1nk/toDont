@@ -36,11 +36,11 @@ app.get(
         res.json(req.user)
 })
 
-app.get('/todo',
-    secure,
-    (req,res)=>{
-        res.redirect('/todo/' + req.user.id)
-})
+//app.get('/todo',
+//    secure,
+//    (req,res)=>{
+//        res.redirect('/todo/' + req.user.id)
+//})
 
 app.get('/todo/:userId',
     secure,
