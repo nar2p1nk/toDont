@@ -1,13 +1,16 @@
 import './style/main.css';
 import axios from 'axios';
 import {useEffect} from 'react';
-import {Navigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 const token = sessionStorage.getItem('jwtToken');
 
 const Main = () => {
-
+    let navigate = useNavigate();
 useEffect(()=>{
+    if(token === null){
+        navigate('/login')
+    }
     axios.get('http://localhost:8080')
         .then((res)=>{
             console.log(res.data)
@@ -15,7 +18,6 @@ useEffect(()=>{
 })
     return (
         <div className="main">
-            {token && (<Navigate to='/login' replace/>)}
             <div className="intro">
                 <h1>hello</h1>
             </div>

@@ -1,7 +1,10 @@
 import {useState} from 'react';
 import './style/login.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
+
+    let navigate = useNavigate();
 
     const [username,setUsername] = useState('');
     const [password,setPassword] = useState('');
@@ -26,6 +29,7 @@ const Login = () => {
                 if(res.data.token){
                     console.log(res.data.token)
                     sessionStorage.setItem('jwtToken', res.data.token)
+                    navigate('/')
                 }
             })
             .catch((err)=>{console.log(err)})
