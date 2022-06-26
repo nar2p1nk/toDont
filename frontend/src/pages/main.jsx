@@ -29,7 +29,11 @@ useEffect(()=>{
         <div className="main">
             <div className="intro">
                 <h1>hello</h1>
-                
+                {todos.map((todo)=>{
+                    return(
+                        <p key={todo.todoId}>{todo.todo}</p>
+                    )
+                })}
             </div>
         </div>
         
