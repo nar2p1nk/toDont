@@ -12,10 +12,12 @@ const Main = () => {
     let navigate = useNavigate();
 useEffect(()=>{
     console.log('useEffectr')
-    const decodedToken = jwtDecode(token)
+    let decodedToken;
     if(token === null){
         navigate('/login')
+        return;
     }
+    else{decodedToken = jwtDecode(token)}
     axios.get('http://localhost:8080/todo/' + decodedToken.id)
         .then((res)=>{
             console.log(res.data)
