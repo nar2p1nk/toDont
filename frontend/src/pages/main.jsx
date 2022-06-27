@@ -4,14 +4,13 @@ import {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 
-const token = sessionStorage.getItem('jwtToken');
 
 const Main = () => {
-
+    const token = sessionStorage.getItem('jwtToken');
+    console.log('main',token)
     const [todos,setTodos] = useState([])
     let navigate = useNavigate();
 useEffect(()=>{
-    console.log('useEffectr')
     let decodedToken;
     if(token === null){
         navigate('/login')
