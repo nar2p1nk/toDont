@@ -33,11 +33,26 @@ useEffect(()=>{
         <div className="main">
             <div className="intro">
                 <h1>hello</h1>
-                {todos.map((todo)=>{
+                <div className='todos'>
+                    <div className="completed-div">
+                        <h3>Completed</h3>
+                        {todos.map(todo =>{
+                            if(todo.completed === 0){return null;}
+                            return(
+                                <p key={todo.todoId}>{todo.todo}</p>
+                            )
+                        })}
+                    </div>
+                <div className='uncompleted-div'>
+                    <h3>Uncompleted</h3>
+                {todos.map(todo =>{
+                    if(todo.completed === 1){return null;}
                     return(
                         <p key={todo.todoId}>{todo.todo}</p>
                     )
                 })}
+                </div>
+                </div>
             </div>
         </div>
         
