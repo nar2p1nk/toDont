@@ -17,7 +17,10 @@ useEffect(()=>{
         return;
     }
     else{decodedToken = jwtDecode(token)}
-    axios.get('http://localhost:8080/todo/' + decodedToken.id)
+    axios.get(
+        'http://localhost:8080/todo/' + decodedToken.id,
+        {headers:{Authorization: 'Bearer ' + token}}
+)
         .then((res)=>{
             console.log(res.data)
             setTodos(res.data)
