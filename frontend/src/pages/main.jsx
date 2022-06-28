@@ -30,9 +30,9 @@ useEffect(()=>{
     return;
 },[])
     return (
-        <div className="main">
-            <div className="intro">
-                <h1>hello</h1>
+        <div className="container">
+            <div className='main'>
+                <h1 className='todos-title'>hello</h1>
                 <div className='todos'>
                     <div className="completed-div">
                         <h3>Completed</h3>
@@ -53,7 +53,7 @@ useEffect(()=>{
                 })}
                 </div>
                 </div>
-            </div>
+        </div>
         </div>
         
     )

@@ -1,9 +1,27 @@
-.main{
+.container{
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.intro{
+.main{
+    width: 100%;
+}
+
+.todos-title{
+    text-align: center;
+}
+
+.todos{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.completed-div,.uncompleted-div{
+    width: 50%;
 }
