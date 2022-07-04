@@ -32,9 +32,12 @@ useEffect(()=>{
     return (
         <div className="container">
             <div className='main'>
+                <div className="todos-title">
+                    <h2 className="header2 completed">Completed</h2>
+                    <h2 className="header2 uncompeleted">Uncompleted</h2>
+                </div>
                 <div className='todos'>
                     <div className="completed-div">
-                        <h1>Completed</h1>
                         {todos.map(todo =>{
                             if(todo.completed === 0){return null;}
                             return(
@@ -43,7 +46,6 @@ useEffect(()=>{
                         })}
                     </div>
                 <div className='uncompleted-div'>
-                    <h1>Uncompleted</h1>
                 {todos.map(todo =>{
                     if(todo.completed === 1){return null;}
                     return(

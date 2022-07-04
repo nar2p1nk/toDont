@@ -8,12 +8,6 @@
     background-repeat: no-repeat;
 }
 
-.background{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 1;
-}
 
 .main{
     width: 100%;
@@ -21,7 +15,15 @@
 
 .todos-title{
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
+
+.completed, .uncompleted{
+    text-align: center;
+}
+
 
 .todos{
     width: 100%;
