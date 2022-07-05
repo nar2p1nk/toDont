@@ -38,6 +38,16 @@ useEffect(()=>{
                 </div>
                 <div className='todos'>
                     <div className="completed-div">
+                        <div className="input">
+                            <input className="input todo"
+                                placeholder='enter todo'
+                                type="text" />
+                            <button className="button todo">Post</button>
+                            <button className="button todo">
+                            Complete todo
+                            </button>
+                            <button className="button todo">Check all</button>
+                        </div>
                         {todos.map(todo =>{
                             if(todo.completed === 0){return null;}
                             return(
