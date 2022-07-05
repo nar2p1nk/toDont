@@ -33,15 +33,16 @@ useEffect(()=>{
         <div className="container">
             <div className='main'>
                 <div className="todos-title">
-                    <h2 className="header2 completed">Completed</h2>
-                    <h2 className="header2 uncompeleted">Uncompleted</h2>
+                    <h2 className="header2 completed">Uncompleted</h2>
+                    <h2 className="header2 uncompeleted">Completed</h2>
                 </div>
                 <div className='todos'>
                     <div className="completed-div">
-                        <div className="input">
+                        <div className="inputDiv">
                             <input className="input todo"
                                 placeholder='enter todo'
                                 type="text" />
+                            <br/>
                             <button className="button todo">Post</button>
                             <button className="button todo">
                             Complete todo
@@ -49,7 +50,7 @@ useEffect(()=>{
                             <button className="button todo">Check all</button>
                         </div>
                         {todos.map(todo =>{
-                            if(todo.completed === 0){return null;}
+                            if(todo.completed === 1){return null;}
                             return(
                                 <div className='todo completed'><p key={todo.todoId}>{todo.todo}</p></div>
                             )
@@ -57,7 +58,7 @@ useEffect(()=>{
                     </div>
                 <div className='uncompleted-div'>
                 {todos.map(todo =>{
-                    if(todo.completed === 1){return null;}
+                    if(todo.completed === 0){return null;}
                     return(
                         <div className='todo uncompleted'><p key={todo.todoId}>{todo.todo}</p></div>
                     )
