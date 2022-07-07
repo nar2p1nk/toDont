@@ -10,7 +10,6 @@
 
 
 .main{
-    padding-bottom: 280px;
     width: 1218px;
 }
 
@@ -24,6 +23,7 @@
 .completed, .uncompleted{
     text-align: center;
 }
+
 
 
 .todos{
@@ -49,5 +49,7 @@
 }
 
 .completed-div,.uncompleted-div{
+    height: 700px;
     width: 50%;
+    border: 1px solid white;
 }
