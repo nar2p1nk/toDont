@@ -46,6 +46,12 @@
     padding: 5px 14px;
     border-radius: 5px;
     cursor: pointer;
+    transition: 300ms;
+}
+
+.button:hover{
+    background-color:#FF189B;
+    border: solid 1px #FF189B;
 }
 
 .completed-div,.uncompleted-div{
