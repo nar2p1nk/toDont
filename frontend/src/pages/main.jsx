@@ -52,7 +52,7 @@ useEffect(()=>{
                         {todos.map(todo =>{
                             if(todo.completed === 1){return null;}
                             return(
-                                <div className='todo completed'><p key={todo.todoId}>{todo.todo}</p></div>
+                                <div className='todo completed' key={todo.todoId}><p>{todo.todo}</p></div>
                             )
                         })}
                     </div>
@@ -60,7 +60,7 @@ useEffect(()=>{
                 {todos.map(todo =>{
                     if(todo.completed === 0){return null;}
                     return(
-                        <div className='todo uncompleted'><p key={todo.todoId}>{todo.todo}</p></div>
+                        <div className='todo uncompleted' key={todo.todoId}><p>{todo.todo}</p></div>
                     )
                 })}
                 </div>
