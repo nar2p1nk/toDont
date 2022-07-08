@@ -1,3 +1,8 @@
+@keyframes changeTextColor{
+    from{color:white;}
+    to{color:#352D68;}
+}
+
 a{
     color: white;
     text-decoration: none;
@@ -34,4 +39,11 @@ a{
     font-weight: normal;
     padding: 10px ;
     margin: 0 5px;
+    transition: 300ms;
 }
+
+.nav-item:hover{
+    color:#352D68
+}
+
+
