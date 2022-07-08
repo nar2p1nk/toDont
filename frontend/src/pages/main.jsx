@@ -37,7 +37,7 @@ useEffect(()=>{
                     <h2 className="header2 uncompeleted">Completed</h2>
                 </div>
                 <div className='todos'>
-                    <div className="completed-div">
+                    <div className="uncompleted-div">
                         <div className="inputDiv">
                             <input className="input todo"
                                 placeholder='enter todo'
@@ -56,7 +56,7 @@ useEffect(()=>{
                             )
                         })}
                     </div>
-                <div className='uncompleted-div'>
+                <div className='completed-div'>
                 {todos.map(todo =>{
                     if(todo.completed === 0){return null;}
                     return(

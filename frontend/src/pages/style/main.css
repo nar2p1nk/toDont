@@ -53,5 +53,11 @@
     max-height: 700px;
     width: 50%;
     border: 1px solid white;
-    border-radius: 10px;
+}
+
+.completed-div{
+    border-radius: 0 10px 10px 0;
+}
+.uncompleted-div{
+    border-radius: 10px 0 0 10px;
 }
