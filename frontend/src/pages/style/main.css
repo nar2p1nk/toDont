@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('../../images/Left.svg'), url('../../images/layered-waves-haikei.svg') ;
+    background-image: url('../../images/leftR.svg'), url('../../images/rightR.svg') ;
     background-position: left,right;
     background-repeat: no-repeat;
 }
@@ -68,3 +68,16 @@
 .uncompleted-div{
     border-radius: 10px 0 0 10px;
 }
+
+.inputDiv{
+    border-bottom: 1px solid white;
+    padding: 5px 0 10px 0;
+}
+
+.input.todo{
+    padding: 0 10px;
+    width: 90%;
+    height: 25px;
+    border-radius: 5px;
+}
+
