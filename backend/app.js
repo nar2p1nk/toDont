@@ -56,13 +56,9 @@ app.get('/todo/:userId',
 app.post('/todo/create',
     secure,
     (req,res)=>{
-        if(req.body.todo == 0 || req.body.todo == undefined ){
-            res.json('please type something')
-            return;
-        }
         model.createtodo(req.body.todo,req.user.id)
-        const todo = [req.body.todo,req.user.id]
-        res.json(todo)
+        const todos = model.findTodoByuserId(req.body.userId);
+        res.json(todos)
 })
 
 app.post('/todo/complete',

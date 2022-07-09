@@ -36,12 +36,23 @@ useEffect(()=>{
 
     function onChangeTodoText(e){
         setTodoText(e.target.value)
-        console.log(todoText)
     }
 
     function submitTodo(e){
+        const decodedToken = jwtDecode(token);
         e.preventDefault()
         console.log('post',todoText)
+        axios.post('http://localhost:8080/todo/create',
+            {
+                todo:todoText,
+                userId:decodedToken.id,
+            },
+            {headers:{Authorization: 'Bearer ' + token}}
+        )
+            .then((res)=>{
+                console.log(res)
+                setTodos(res.data)
+            })
     }
 
     return (
@@ -59,6 +70,7 @@ useEffect(()=>{
                                 placeholder='enter todo'
                                 type="text"
                                 onChange={(event)=> onChangeTodoText(event)}
+                                required={true}
                             />
                             <br/>
                             <button className="button todo" value='submit'>Post</button>
