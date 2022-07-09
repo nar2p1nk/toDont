@@ -56,6 +56,7 @@
 
 .completed-div,.uncompleted-div{
     min-height: 500px;
+    height: min-content;
     max-height: 700px;
     width: 50%;
     border: 1px solid white;
@@ -64,14 +65,25 @@
 .completed-div{
     border-radius: 0 10px 10px 0;
     border-left:0;
+    position: relative;
 }
 .uncompleted-div{
     border-radius: 10px 0 0 10px;
 }
 
-.inputDiv{
+.inputDiv.uncompleted{
     border-bottom: 1px solid white;
     padding: 5px 0 10px 0;
+    min-height: 67px;
+}
+
+.inputDiv.completed{
+    padding: 5px 0 10px 0;
+    width: 100%;
+    border-top:1px solid white;
+    position: absolute;
+    bottom:0;
+    left:0;
 }
 
 .input.todo{
