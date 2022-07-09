@@ -39,6 +39,11 @@ useEffect(()=>{
         console.log(todoText)
     }
 
+    function submitTodo(e){
+        e.preventDefault()
+        console.log('post',todoText)
+    }
+
     return (
         <div className="container">
             <div className='main'>
@@ -49,7 +54,7 @@ useEffect(()=>{
                 <div className='todos'>
                     <div className="uncompleted-div">
                         <div className="inputDiv uncompleted">
-                            <form>
+                            <form onSubmit={submitTodo}>
                             <input className="input todo"
                                 placeholder='enter todo'
                                 type="text"
