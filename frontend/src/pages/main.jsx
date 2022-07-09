@@ -49,17 +49,19 @@ useEffect(()=>{
                 <div className='todos'>
                     <div className="uncompleted-div">
                         <div className="inputDiv uncompleted">
+                            <form>
                             <input className="input todo"
                                 placeholder='enter todo'
                                 type="text"
                                 onChange={(event)=> onChangeTodoText(event)}
                             />
                             <br/>
-                            <button className="button todo">Post</button>
+                            <button className="button todo" value='submit'>Post</button>
                             <button className="button todo">
                             Complete selected todos
                             </button>
                             <button className="button todo">Check all</button>
+                        </form>
                         </div>
                         <div className='list-todosUncompleted'>
                         {todos.map(todo =>{
