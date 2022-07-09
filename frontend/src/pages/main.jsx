@@ -6,8 +6,10 @@ import jwtDecode from 'jwt-decode';
 
 
 const Main = () => {
+
+    const [todoText,setTodoText] = useState('');
+
     const token = sessionStorage.getItem('jwtToken');
-    console.log('main',token)
     const [todos,setTodos] = useState([])
     let navigate = useNavigate();
 useEffect(()=>{
@@ -27,8 +29,16 @@ useEffect(()=>{
             console.log(todos)
             return;
         })
+
+
     return;
 },[])
+
+    function onChangeTodoText(e){
+        setTodoText(e.target.value)
+        console.log(todoText)
+    }
+
     return (
         <div className="container">
             <div className='main'>
@@ -41,7 +51,9 @@ useEffect(()=>{
                         <div className="inputDiv uncompleted">
                             <input className="input todo"
                                 placeholder='enter todo'
-                                type="text" />
+                                type="text"
+                                onChange={(event)=> onChangeTodoText(event)}
+                            />
                             <br/>
                             <button className="button todo">Post</button>
                             <button className="button todo">
