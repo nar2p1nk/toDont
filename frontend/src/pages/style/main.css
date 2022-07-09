@@ -93,3 +93,8 @@
     border-radius: 5px;
 }
 
+.todo-div{
+    min-height: 20px;
+    border-bottom:solid 1px white;
+}
+
