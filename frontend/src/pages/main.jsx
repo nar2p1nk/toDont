@@ -8,7 +8,7 @@ import jwtDecode from 'jwt-decode';
 const Main = () => {
 
     const [todoText,setTodoText] = useState('');
-
+    const [todosToComplete,setTodosToComplete] = useState([]);
     const token = sessionStorage.getItem('jwtToken');
     const [todos,setTodos] = useState([])
     let navigate = useNavigate();
@@ -85,6 +85,7 @@ useEffect(()=>{
                             if(todo.completed === 1){return null;}
                             return(
                                 <div className='todo-div completed' key={todo.todoId}>
+                                    <input type="checkbox" />
                                     <p>{todo.todo}</p>
                                 </div>
                             )
@@ -95,7 +96,10 @@ useEffect(()=>{
                 {todos.map(todo =>{
                     if(todo.completed === 0){return null;}
                     return(
-                        <div className='todo-div uncompleted' key={todo.todoId}><p>{todo.todo}</p></div>
+                        <div className='todo-div uncompleted' key={todo.todoId}>
+                            <input type='checkbox'/>
+                            <p>{todo.todo}</p>
+                        </div>
                     )
                 })}
                     <div className="inputDiv completed">

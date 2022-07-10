@@ -98,3 +98,7 @@
     border-bottom:solid 1px white;
 }
 
+.todo-div{
+    display: flex;
+    flex-direction: row;
+}
