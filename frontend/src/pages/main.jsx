@@ -39,6 +39,7 @@ useEffect(()=>{
     }
 
     function submitTodo(e){
+        if(e.key === 'Enter'){
         const decodedToken = jwtDecode(token);
         e.preventDefault()
         console.log('post',todoText)
@@ -53,6 +54,7 @@ useEffect(()=>{
                 console.log(res)
                 setTodos(res.data)
             })
+        }
     }
 
     function handleCheckTodo(e){
@@ -70,6 +72,10 @@ useEffect(()=>{
         }}
     }
 
+    function handleCompleteTodo(){
+        console.log(todosToComplete)
+    }
+
     return (
         <div className="container">
             <div className='main'>
@@ -80,20 +86,20 @@ useEffect(()=>{
                 <div className='todos'>
                     <div className="uncompleted-div">
                         <div className="inputDiv uncompleted">
-                            <form onSubmit={submitTodo}>
                             <input className="input todo"
                                 placeholder='enter todo'
                                 type="text"
                                 onChange={(event)=> onChangeTodoText(event)}
                                 required={true}
+                                onKeyPress={submitTodo}
                             />
-                            <br/>
-                            <button className="button todo" value='submit'>Post</button>
-                            <button className="button todo">
+                            
+                                <button className="button todo" value='submit'>Post</button>
+
+                            <button className="button todo" onClick={handleCompleteTodo}>
                             Complete selected todos
                             </button>
                             <button className="button todo">Check all</button>
-                        </form>
                         </div>
                         <div className='list-todosUncompleted'>
                         {todos.map(todo =>{
