@@ -39,7 +39,7 @@ useEffect(()=>{
     }
 
     function submitTodo(e){
-        if(e.key === 'Enter'){
+        if(e.key === 'Enter' || e.target.value === 'submit'){
         const decodedToken = jwtDecode(token);
         e.preventDefault()
         console.log('post',todoText)
@@ -53,6 +53,7 @@ useEffect(()=>{
             .then((res)=>{
                 console.log(res)
                 setTodos(res.data)
+                setTodoText('')
             })
         }
     }
@@ -89,12 +90,13 @@ useEffect(()=>{
                             <input className="input todo"
                                 placeholder='enter todo'
                                 type="text"
+                                value={todoText}
                                 onChange={(event)=> onChangeTodoText(event)}
                                 required={true}
                                 onKeyPress={submitTodo}
                             />
                             
-                                <button className="button todo" value='submit'>Post</button>
+                                <button className="button todo" value='submit' onClick={submitTodo}>Post</button>
 
                             <button className="button todo" onClick={handleCompleteTodo}>
                             Complete selected todos
