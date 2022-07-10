@@ -55,6 +55,21 @@ useEffect(()=>{
             })
     }
 
+    function handleCheckTodo(e){
+        if(e.target.checked === true){
+            const todosId = [...todosToComplete,e.target.value];
+            setTodosToComplete(todosId);
+            console.log(todosToComplete);
+        }
+        else{if(e.target.checked === false){
+            const newTodos = todosToComplete;
+            const id = newTodos.indexOf(e.target.value);
+            newTodos.splice(id,1);
+            setTodosToComplete(newTodos);
+            console.log('uncheck',todosToComplete)
+        }}
+    }
+
     return (
         <div className="container">
             <div className='main'>
@@ -85,7 +100,7 @@ useEffect(()=>{
                             if(todo.completed === 1){return null;}
                             return(
                                 <div className='todo-div completed' key={todo.todoId}>
-                                    <input type="checkbox" />
+                                    <input type="checkbox" value={todo.todoId} onChange={handleCheckTodo} />
                                     <p>{todo.todo}</p>
                                 </div>
                             )
