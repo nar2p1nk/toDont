@@ -107,7 +107,6 @@ useEffect(()=>{
                             <button className="button todo" onClick={handleCompleteTodo}>
                             Complete selected todos
                             </button>
-                            <button className="button todo">Check all</button>
                         </div>
                         <div className='list-todosUncompleted'>
                         {todos.map(todo =>{
@@ -133,7 +132,6 @@ useEffect(()=>{
                 })}
                     <div className="inputDiv completed">
                         <button className="button todo">Delete selected todos</button>
-                        <button className="button todo">Check all</button>
                     </div>
                 </div>
                 </div>
