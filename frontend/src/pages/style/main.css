@@ -63,12 +63,17 @@
 }
 
 .completed-div{
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 0 10px 0;
     border-left:0;
     position: relative;
 }
 .uncompleted-div{
-    border-radius: 10px 0 0 10px;
+    border-radius: 10px 0 0 0;
+}
+
+.todos-list{
+    max-height: 420px;
+    overflow: scroll;
 }
 
 .inputDiv.uncompleted{
