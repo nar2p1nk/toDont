@@ -68,7 +68,8 @@ app.post('/todo/complete',
         for(let id in idsToComplete){
             model.completeTodo(idsToComplete[id])
         }
-        res.json({todos:'completed'})
+        const todos = model.findTodoByuserId(req.body.userId)
+        res.json(todos)
     }
 )
 

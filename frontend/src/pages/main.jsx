@@ -74,7 +74,13 @@ useEffect(()=>{
     }
 
     function handleCompleteTodo(){
-        console.log(todosToComplete)
+        const decodedToken = jwtDecode(token);
+        console.log(todosToComplete);
+        axios.post('http://localhost:8080/todo/complete',
+            {list:todosToComplete,userId:decodedToken.id},
+            {headers:{Authorization:'Bearer ' + token }}
+        )
+            .then((res)=>{setTodos(res.data)})
     }
 
     return (
