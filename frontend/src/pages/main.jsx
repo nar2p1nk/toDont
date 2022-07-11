@@ -9,6 +9,7 @@ const Main = () => {
 
     const [todoText,setTodoText] = useState('');
     const [todosToComplete,setTodosToComplete] = useState([]);
+    const [todosToDelete,setTodosToDelete] = useState([]);
     const token = sessionStorage.getItem('jwtToken');
     const [todos,setTodos] = useState([])
     let navigate = useNavigate();
@@ -58,18 +59,18 @@ useEffect(()=>{
         }
     }
 
-    function handleCheckTodo(e){
+    function handleCheckTodo(e,useState,setUseState){
         if(e.target.checked === true){
-            const todosId = [...todosToComplete,e.target.value];
-            setTodosToComplete(todosId);
-            console.log(todosToComplete);
+            const todosId = [...useState,e.target.value];
+            setUseState(todosId);
+            console.log(useState);
         }
         else{if(e.target.checked === false){
-            const newTodos = todosToComplete;
+            const newTodos = useState;
             const id = newTodos.indexOf(e.target.value);
             newTodos.splice(id,1);
-            setTodosToComplete(newTodos);
-            console.log('uncheck',todosToComplete)
+            setUseState(newTodos);
+            console.log('uncheck',useState)
         }}
     }
 
@@ -79,6 +80,16 @@ useEffect(()=>{
         axios.post('http://localhost:8080/todo/complete',
             {list:todosToComplete,userId:decodedToken.id},
             {headers:{Authorization:'Bearer ' + token }}
+        )
+            .then((res)=>{setTodos(res.data)})
+    }
+
+    function handleDeleteTodo(){
+        const decodedToken = jwtDecode(token);
+        console.log(todosToDelete);
+        axios.post('http://localhost:8080/todo/delete',
+            {list:todosToDelete,userId:decodedToken.id},
+            {headers:{Authorization:'Bearer ' + token}}
         )
             .then((res)=>{setTodos(res.data)})
     }
@@ -113,7 +124,8 @@ useEffect(()=>{
                             if(todo.completed === 1){return null;}
                             return(
                                 <div className='todo-div completed' key={todo.todoId}>
-                                    <input type="checkbox" value={todo.todoId} onChange={handleCheckTodo} />
+                                    <input type="checkbox" value={todo.todoId}
+                                        onChange={(e)=>{handleCheckTodo(e,todosToComplete,setTodosToComplete)}} />
                                     <p>{todo.todo}</p>
                                 </div>
                             )
@@ -125,13 +137,15 @@ useEffect(()=>{
                     if(todo.completed === 0){return null;}
                     return(
                         <div className='todo-div uncompleted' key={todo.todoId}>
-                            <input type='checkbox'/>
+                            <input type='checkbox' value={todo.todoId}
+                            onChange={(e)=>{handleCheckTodo(e,todosToDelete,setTodosToDelete)}}/>
                             <p>{todo.todo}</p>
                         </div>
                     )
                 })}
                     <div className="inputDiv completed">
-                        <button className="button todo">Delete selected todos</button>
+                        <button className="button todo" 
+                        onClick={handleDeleteTodo}>Delete selected todos</button>
                     </div>
                 </div>
                 </div>

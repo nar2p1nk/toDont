@@ -81,7 +81,8 @@ app.post('/todo/delete',
         for(let id in idsToDelete){
             model.deleteTodo(idsToDelete[id])
         }
-        res.json({todos:'deleted'})
+        const todos = model.findTodoByuserId(req.body.userId)
+        res.json(todos)
     }
 )
 
