@@ -41,6 +41,7 @@ useEffect(()=>{
 
     function submitTodo(e){
         if(e.key === 'Enter' || e.target.value === 'submit'){
+            if( todoText.length < 1){console.log('type something'); return;}
         const decodedToken = jwtDecode(token);
         e.preventDefault()
         console.log('post',todoText)
