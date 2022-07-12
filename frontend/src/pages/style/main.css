@@ -77,11 +77,20 @@
 }
 
 .todo-checkbox-div{
+    width: 4%;
     display: flex;
     justify-content: center;
     align-items: center;
     border-right: 1px solid white;
+    padding: 0 2px;
 }
+
+.todo-checkbox{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
 
 .inputDiv.uncompleted{
     border-bottom: 1px solid white;

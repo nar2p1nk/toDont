@@ -126,11 +126,12 @@ useEffect(()=>{
                                 <div className='todo-div completed' key={todo.todoId}>
                                     <div className='todo-checkbox-div'>
                                         <input
+                                            className='todo-checkbox'
                                             type="checkbox"
                                             value={todo.todoId}
                                             onChange={(e)=>{handleCheckTodo(e,todosToComplete,setTodosToComplete)}} />
                                     </div>
-                                    <p>{todo.todo}</p>
+                                    <p className='todo-parag'>{todo.todo}</p>
                                 </div>
                             )
                         })}
