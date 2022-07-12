@@ -86,11 +86,14 @@
 }
 
 .todo-checkbox{
-    width: 100%;
-    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
     cursor: pointer;
 }
 
+.todo-parag{
+    padding-left: 10px;
+}
 
 .inputDiv.uncompleted{
     border-bottom: 1px solid white;
@@ -117,9 +120,8 @@
 .todo-div{
     min-height: 20px;
     border-bottom:solid 1px white;
-}
-
-.todo-div{
     display: flex;
     flex-direction: row;
+
 }
+

@@ -144,9 +144,14 @@ useEffect(()=>{
                     if(todo.completed === 0){return null;}
                     return(
                         <div className='todo-div uncompleted' key={todo.todoId}>
-                            <input type='checkbox' value={todo.todoId}
-                            onChange={(e)=>{handleCheckTodo(e,todosToDelete,setTodosToDelete)}}/>
-                            <p>{todo.todo}</p>
+                            <div className='todo-checkbox-div'>
+                                <input
+                                    className='todo-checkbox'
+                                    type='checkbox'
+                                    value={todo.todoId}
+                                    onChange={(e)=>{handleCheckTodo(e,todosToDelete,setTodosToDelete)}}/>
+                            </div>
+                            <p className='todo-parag'>{todo.todo}</p>
                         </div>
                     )
                 })}
