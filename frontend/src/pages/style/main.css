@@ -76,6 +76,13 @@
     overflow: scroll;
 }
 
+.todo-checkbox-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid white;
+}
+
 .inputDiv.uncompleted{
     border-bottom: 1px solid white;
     padding: 5px 0 10px 0;

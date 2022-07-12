@@ -124,8 +124,12 @@ useEffect(()=>{
                             if(todo.completed === 1){return null;}
                             return(
                                 <div className='todo-div completed' key={todo.todoId}>
-                                    <input type="checkbox" value={todo.todoId}
-                                        onChange={(e)=>{handleCheckTodo(e,todosToComplete,setTodosToComplete)}} />
+                                    <div className='todo-checkbox-div'>
+                                        <input
+                                            type="checkbox"
+                                            value={todo.todoId}
+                                            onChange={(e)=>{handleCheckTodo(e,todosToComplete,setTodosToComplete)}} />
+                                    </div>
                                     <p>{todo.todo}</p>
                                 </div>
                             )
