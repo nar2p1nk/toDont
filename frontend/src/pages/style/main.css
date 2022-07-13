@@ -1,3 +1,8 @@
+@keyframes faded{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
 .container{
     height: 100%;
     display: flex;
@@ -6,6 +11,7 @@
     background-image: url('../../images/leftR.svg'), url('../../images/rightR.svg') ;
     background-position: left,right;
     background-repeat: no-repeat;
+    animation: faded 500ms;
 }
 
 
@@ -13,11 +19,14 @@
     width: 1218px;
 }
 
+
 .todos-title{
     text-align: center;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    animation-name: faded;
+    animation-duration: 100ms;
 }
 
 .completed, .uncompleted{
@@ -33,6 +42,8 @@
     justify-content: space-between;
     align-items: center;
     text-align: center;
+    animation-name: faded;
+    animation-duration: 500ms;
 }
 
 
@@ -60,6 +71,7 @@
     max-height: 700px;
     width: 50%;
     border: 1px solid white;
+    animation: faded 2000ms;
 }
 
 .completed-div{
