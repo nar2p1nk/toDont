@@ -76,6 +76,7 @@ useEffect(()=>{
     }
 
     function handleCompleteTodo(){
+        if(todosToComplete.length < 1){console.log('todosToComplete is empty'); return;}
         const decodedToken = jwtDecode(token);
         console.log(todosToComplete);
         axios.post('http://localhost:8080/todo/complete',
@@ -86,6 +87,7 @@ useEffect(()=>{
     }
 
     function handleDeleteTodo(){
+        if(todosToDelete < 1){console.log('todosToDelete is empty');return;}
         const decodedToken = jwtDecode(token);
         console.log(todosToDelete);
         axios.post('http://localhost:8080/todo/delete',
