@@ -83,15 +83,13 @@ const Login = () => {
                         value={password}
                     />
                 </div>
+                <span className='signup'>No bitches? Signup</span>
                 <button
                     type='submit'
                     value='submit'
                     className='login-submit'
                 >
                 Log In</button>
-                <div className="registerDiv">
-                    <span className="register">Don't have an account? Register now!</span>
-                </div>
             </form>
             <div className="background bottom"></div>
     </div>

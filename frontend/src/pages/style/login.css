@@ -16,7 +16,8 @@
     align-items: center;
     border:1px solid transparent;
     border-radius: 8px;
-    height: 400px;
+    height: max-content;
+    padding: 20px 0 40px 0;
     width: 400px;
     z-index: 10;
     background-color: #181b1c;
@@ -42,11 +43,15 @@
     margin: 5px 0;
 }
 
+.signup{
+    margin-top: 5px;
+}
+
 .login-submit{
     font-size: large;
-    margin-top: 10px;
+    margin-top: 25px;
     width: 90%;
-    height: 195px;
+    height: 40px;
     border:1px solid transparent;
     border-radius: 10px;
     cursor: pointer;
