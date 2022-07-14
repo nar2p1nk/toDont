@@ -83,7 +83,7 @@ useEffect(()=>{
             {list:todosToComplete,userId:decodedToken.id},
             {headers:{Authorization:'Bearer ' + token }}
         )
-            .then((res)=>{setTodos(res.data)})
+            .then((res)=>{setTodos(res.data);setTodosToComplete([])})
     }
 
     function handleDeleteTodo(){
@@ -94,7 +94,7 @@ useEffect(()=>{
             {list:todosToDelete,userId:decodedToken.id},
             {headers:{Authorization:'Bearer ' + token}}
         )
-            .then((res)=>{setTodos(res.data)})
+            .then((res)=>{setTodos(res.data);setTodosToDelete([])})
     }
 
     return (
