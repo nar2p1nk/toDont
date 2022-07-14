@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-
-
 .login{
     display: flex;
     align-items: center;
@@ -21,9 +19,16 @@
     width: 400px;
     z-index: 10;
     background-color: #181b1c;
+    animation: faded 1s;
 }
+
+.login-title{
+    margin-bottom: 15px;
+}
+
 .login-error{
-    margin: 0;
+    height: 24px;
+    margin: 0 0 10px 0;
 }
 
 .label{
@@ -52,7 +57,6 @@
     color:#FF189B;
 }
 
-
 .login-submit{
     font-size: large;
     margin-top: 25px;
@@ -62,7 +66,12 @@
     border-radius: 10px;
     cursor: pointer;
     background-color:#352d68;
-    color:white
+    color:white;
+    transition: 300ms;
+}
+
+.login-submit:hover{
+    background-color: #FF189B;
 }
 
 .registerDiv{
@@ -86,12 +95,14 @@
     background-image: url('../../images/loginTest.svg');
     background-repeat: no-repeat;
     background-size: cover;
+    animation: faded 500ms;
 }
 
 .background.bottom{
     height: 40%;
     background-color: #352d68;
     bottom:0;
+    animation: faded 500ms;
 }
 
 

@@ -55,7 +55,7 @@ const Login = () => {
             <div className="background top"></div>
             <form action="" method='POST' className='login-card'
                 onSubmit={PostForm}>
-                <h1>Login</h1>
+                <h1 className='login-title'>Login</h1>
                 <p className='login-error'>{errorMessage}</p>
 
                 <div>
@@ -84,7 +84,7 @@ const Login = () => {
                         value={password}
                     />
                 </div>
-                <span className='signup'>No bitches? <Link to='/register' className='signup link'>Signup</Link></span>
+                <span className='signup'>No bitches? <Link to='/signup' className='signup link'>Signup</Link></span>
                 <button
                     type='submit'
                     value='submit'
