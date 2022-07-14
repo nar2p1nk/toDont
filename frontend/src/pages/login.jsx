@@ -56,8 +56,12 @@ const Login = () => {
                 onSubmit={PostForm}>
                 <h1>Login</h1>
                 <p className='login-error'>{errorMessage}</p>
-                <h2>
-                    <label htmlFor="username">Username:</label><br />
+
+                <div>
+                    <h2 className='label username'>
+                        <label htmlFor="username" >Username:</label>
+                    </h2>
+
                     <input
                         type="username"
                         name='username'
@@ -66,9 +70,10 @@ const Login = () => {
                         onChange={e => onChange(e,username,setUsername)}
                         value={username}
                     />
-                </h2>
-                <h2>
-                    <label htmlFor="password">Password:</label><br />
+
+                </div>
+                <div>
+                    <h2 className='label password'><label htmlFor="password">Password:</label></h2>
                     <input
                         type="password"
                         name='password'
@@ -77,13 +82,16 @@ const Login = () => {
                         onChange={e=>onChange(e,password,setPassword)}
                         value={password}
                     />
-                </h2>
+                </div>
                 <button
                     type='submit'
                     value='submit'
                     className='login-submit'
                 >
-                Submit</button>
+                Log In</button>
+                <div className="registerDiv">
+                    <span className="register">Don't have an account? Register now!</span>
+                </div>
             </form>
             <div className="background bottom"></div>
     </div>
