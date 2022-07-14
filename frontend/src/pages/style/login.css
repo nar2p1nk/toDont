@@ -49,16 +49,16 @@
 }
 
 .background.top{
-    height:70%;
+    height: 60%;
     background-position:bottom;
     top:0;
-    background-image: url('../../images/login.svg');
+    background-image: url('../../images/loginTest.svg');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .background.bottom{
-    height: 30%;
+    height: 40%;
     background-color: #352d68;
     bottom:0;
 }
