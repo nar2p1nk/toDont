@@ -47,6 +47,12 @@
     margin-top: 5px;
 }
 
+.signup.link{
+    font-weight: bold;
+    color:#FF189B;
+}
+
+
 .login-submit{
     font-size: large;
     margin-top: 25px;

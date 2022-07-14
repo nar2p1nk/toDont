@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 import './style/login.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 // new pink EA11Ad
 
@@ -83,7 +84,7 @@ const Login = () => {
                         value={password}
                     />
                 </div>
-                <span className='signup'>No bitches? Signup</span>
+                <span className='signup'>No bitches? <Link to='/register' className='signup link'>Signup</Link></span>
                 <button
                     type='submit'
                     value='submit'
