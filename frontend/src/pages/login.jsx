@@ -3,6 +3,7 @@ import './style/login.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+// new pink EA11Ad
 
 const Login = () => {
 
@@ -50,6 +51,7 @@ const Login = () => {
     return (
 
         <div className="login">
+            <div className="background top"></div>
             <form action="" method='POST' className='login-card'
                 onSubmit={PostForm}>
                 <h1>Login</h1>
@@ -83,7 +85,7 @@ const Login = () => {
                 >
                 Submit</button>
             </form>
-            <div className="background"></div>
+            <div className="background bottom"></div>
     </div>
     )
 }
