@@ -84,7 +84,7 @@ const Login = () => {
                         value={password}
                     />
                 </div>
-                <span className='signup'>No bitches? <Link to='/signup' className='signup link'>Signup</Link></span>
+                <span className='signup'>No bitches? here's the <Link to='/signup' className='signup link'>Signup</Link></span>
                 <button
                     type='submit'
                     value='submit'
