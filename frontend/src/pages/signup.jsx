@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import './style/login.css';
+import './style/signup.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {Link} from 'react-router-dom';
@@ -52,7 +52,7 @@ const Register = () => {
     return (
 
         <div className="login">
-            <div className="background top"></div>
+            <div className="background-register top"></div>
             <form action="" method='POST' className='login-card'
                 onSubmit={PostForm}>
                 <h1 className='login-title'>Signup</h1>
@@ -84,7 +84,7 @@ const Register = () => {
                         value={password}
                     />
                 </div>
-                <span className='signup'>No bitches? <Link to='/signup' className='signup link'>Signup</Link></span>
+                <span className='signup'>got dick? <Link to='/login' className='signup link'>Login now!</Link></span>
                 <button
                     type='submit'
                     value='submit'
@@ -92,7 +92,7 @@ const Register = () => {
                 >
                 Log In</button>
             </form>
-            <div className="background bottom"></div>
+            <div className="background-register bottom"></div>
     </div>
     )
 }
