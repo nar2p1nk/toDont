@@ -1,4 +1,5 @@
-import {useEffect} from "react"
+import {useEffect} from "react";
+import './style/home.css';
 import {useNavigate} from "react-router-dom";
 
 
