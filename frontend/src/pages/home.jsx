@@ -15,7 +15,10 @@ const Home = () => {
     })
     return (
         <div class="homepage">
-            <h1>welcome to toDon't</h1>
+            <div className='landing text'><h1>welcome to toDon't</h1></div>
+            <div className="landing gimmick">
+                <div className="miniApp"></div>
+            </div>
         </div>
     )
 }

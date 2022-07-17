@@ -1,6 +1,17 @@
 .homepage{
     height: 100%;
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items:  center;
+}
+
+.landing.gimmick{
+    width: 200px;
+    height: 200px;
+}
+
+.miniApp{
+    width: 100%;
+    height: 100%;
+    background-color: aqua;
 }
