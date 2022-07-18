@@ -3,9 +3,12 @@
     width: 100%;
 }
 
+.section{
+    height: 700px;
+}
+
 .landing.div{
     text-align: center;
-    height: 700px;
     width: 100%;
     display: grid;
     justify-content: center;
@@ -31,4 +34,9 @@
 .landing.description{
     width: 60%;
     font-size: 23px;
+}
+
+.landing.button{
+    height: 40px;
+    border-radius: 10px;
 }
