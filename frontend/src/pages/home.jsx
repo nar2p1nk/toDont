@@ -15,7 +15,13 @@ const Home = () => {
                 <button className="landing button">Check it out now!</button>
             </div>
             </div>
-            <div className="section features div"></div>
+            <div className="section features div">
+                <div className="features content">
+                    <div className="card"></div>
+                    <div className="card"></div>
+                    <div className="card"></div>
+                </div>
+            </div>
         </div>
     )
 }
