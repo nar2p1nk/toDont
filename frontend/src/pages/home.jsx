@@ -20,8 +20,9 @@ const Home = () => {
             <p className='landing text'>welcome to to-Don't!</p>
                 <p className="landing description">
                     Where instead of making a simple todo app for your first project,
-                    you make a highly complex glorified "to-Don't" web app with beautiful design.
+                    you made a highly complex glorified "to-Don't" web app with beautiful design(i think).
                 </p>
+                <button className="landing button">Check it out now!</button>
             </div>
             </div>
         </div>

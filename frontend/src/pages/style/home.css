@@ -32,3 +32,8 @@
     width: 60%;
     font-size: 23px;
 }
+
+.landing.button{
+    height: 40px;
+    border-radius: 10px;
+}
