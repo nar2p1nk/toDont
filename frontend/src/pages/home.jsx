@@ -1,5 +1,5 @@
 import './style/home.css';
-
+import {FiUser} from 'react-icons/fi'
 
 const Home = () => {
     return (
@@ -17,9 +17,18 @@ const Home = () => {
             </div>
             <div className="section features div">
                 <div className="features content">
-                    <div className="card Flogin"></div>
-                    <div className="card Ffullstack"></div>
-                    <div className="card Fpure"></div>
+                    <div className="card features Flogin">
+                        <FiUser className=' Flogin icon'/>
+                    </div>
+                    <div className="card features"></div>
+                    <div className="card features"></div>
+                </div>
+            </div>
+            <div className="section MTT div">
+                <div className="MTT content">
+                    <div className="card designer"></div>
+                    <div className="card Front-developer"></div>
+                    <div className="card back-developer"></div>
                 </div>
             </div>
         </div>
