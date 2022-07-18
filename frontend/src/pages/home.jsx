@@ -17,9 +17,9 @@ const Home = () => {
             </div>
             <div className="section features div">
                 <div className="features content">
-                    <div className="card"></div>
-                    <div className="card"></div>
-                    <div className="card"></div>
+                    <div className="card Flogin"></div>
+                    <div className="card Ffullstack"></div>
+                    <div className="card Fpure"></div>
                 </div>
             </div>
         </div>
