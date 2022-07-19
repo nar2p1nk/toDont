@@ -18,7 +18,17 @@ const Home = () => {
             <div className="section features div">
                 <div className="features content">
                     <div className="card features Flogin">
+                        <div className='Flogin-div'>
                         <FiUser className=' Flogin icon'/>
+                        </div>
+                        <h2>User authentication!</h2>
+                        <p>
+                            Consectetur velit perspiciatis voluptatum eligendi assumenda voluptatibus!
+                            Error sunt ab tempore qui in Adipisci impedit asperiores optio beatae
+                            labore dolores Pariatur laborum eum ipsam architecto beatae Dolorem
+                            vel ducimus iure
+                        </p>
+                        
                     </div>
                     <div className="card features"></div>
                     <div className="card features"></div>
