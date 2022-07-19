@@ -1,5 +1,5 @@
 import './style/home.css';
-import {FiUser} from 'react-icons/fi'
+import {FiUser,FiMenu} from 'react-icons/fi'
 
 const Home = () => {
     return (
@@ -28,7 +28,15 @@ const Home = () => {
                         </p>
                         
                     </div>
-                    <div className="card features"></div>
+                    <div className="card features Ffullstack">
+                        <FiMenu className='Ffullstack icon'/>
+                        <h2>Fullstack!</h2>
+                        <p className="Ffullstack-para">
+                            This is a fullstack web app meaning that i(yes me) made both the backend and
+                            the frontend, the backend uses a framework called express to handle all the
+                            requests while frontend is handled by react.
+                        </p>
+                    </div>
                     <div className="card features"></div>
                 </div>
             </div>
