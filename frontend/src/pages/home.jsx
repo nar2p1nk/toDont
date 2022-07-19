@@ -22,11 +22,9 @@ const Home = () => {
                         <FiUser className=' Flogin icon'/>
                         </div>
                         <h2>User authentication!</h2>
-                        <p>
-                            Consectetur velit perspiciatis voluptatum eligendi assumenda voluptatibus!
-                            Error sunt ab tempore qui in Adipisci impedit asperiores optio beatae
-                            labore dolores Pariatur laborum eum ipsam architecto beatae Dolorem
-                            vel ducimus iure
+                        <p className='Flogin-para'>
+                            This web app has user authentication(made by me!)!<br/> It uses passportjs with
+                            bcrypt encryption and is stored in sqlite.
                         </p>
                         
                     </div>
@@ -36,9 +34,9 @@ const Home = () => {
             </div>
             <div className="section MTT div">
                 <div className="MTT content">
-                    <div className="card designer"></div>
-                    <div className="card Front-developer"></div>
-                    <div className="card back-developer"></div>
+                    <div className="MTT card designer"></div>
+                    <div className="MTT card Front-developer"></div>
+                    <div className="MTT card back-developer"></div>
                 </div>
             </div>
         </div>

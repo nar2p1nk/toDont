@@ -26,14 +26,14 @@
 }
 
 .landing.text{
-    font-size: 60px;
+    font-size: 6vw;
     text-decoration: underline;
     margin: 0;
 }
 
 .landing.description{
     width: 60%;
-    font-size: 23px;
+    font-size: 3vh;
 }
 
 .landing.button{
@@ -63,6 +63,7 @@
 }
 
 .card.features{
+    width: 32%;
     height: 80%;
     border:none;
     text-align: center;
@@ -87,5 +88,22 @@
     justify-content: space-evenly;
 }
 
-
+@media only screen and (max-width: 750px){
+    .landing.description{
+        width: 80%;
+    }
+    .features.content{
+        flex-direction: column;
+    }
+    .card.features{
+        width: 70%;
+    }
+    .MTT.content{
+    flex-direction: column;
+    align-items: center;
+    }
+    .MTT.card{
+        width: 50%;
+    }
+}
 
