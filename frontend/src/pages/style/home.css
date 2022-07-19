@@ -69,9 +69,13 @@
     text-align: center;
 }
 
-.Flogin-div{
+.icon-div{
     display: flex;
     justify-content: center;
+}
+
+.Fpara{
+    min-height: 120px;
 }
 
 .icon{

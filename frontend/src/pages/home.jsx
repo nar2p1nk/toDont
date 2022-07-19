@@ -1,5 +1,5 @@
 import './style/home.css';
-import {FiUser,FiMenu} from 'react-icons/fi'
+import {FiUser,FiLayers,FiHeadphones} from 'react-icons/fi';
 
 const Home = () => {
     return (
@@ -18,26 +18,39 @@ const Home = () => {
             <div className="section features div">
                 <div className="features content">
                     <div className="card features Flogin">
-                        <div className='Flogin-div'>
+                        <div className='icon-div'>
                         <FiUser className=' Flogin icon'/>
                         </div>
                         <h2>User authentication!</h2>
-                        <p className='Flogin-para'>
+                        <p className='Flogin Fpara'>
                             This web app has user authentication(made by me!)!<br/> It uses passportjs with
-                            bcrypt encryption and is stored in sqlite.
+                            bcrypt encryption and is stored in sqlite. It also has redirects users
+                            that are not logged in, try clicking that to-Don't button up there or Dont.
                         </p>
                         
                     </div>
                     <div className="card features Ffullstack">
-                        <FiMenu className='Ffullstack icon'/>
+                        <div className='icon-div'>
+                            <FiLayers className='Ffullstack icon'/>
+                        </div>
                         <h2>Fullstack!</h2>
-                        <p className="Ffullstack-para">
+                        <p className="Ffullstack Fpara">
                             This is a fullstack web app meaning that i(yes me) made both the backend and
                             the frontend, the backend uses a framework called express to handle all the
                             requests while frontend is handled by react.
                         </p>
                     </div>
-                    <div className="card features"></div>
+                    <div className="card features Fme">
+                        <div className="icon-div">
+                            <FiHeadphones className='Fme icon' />
+                        </div>
+                        <h2>Made by me!</h2>
+                        <p className="Fme Fpara">
+                            Incase you didn't notice, this super-duper hard web app to make was made by me,
+                            but i would also like to thank myself for helping me make this web app
+                            (made by me), without me this wouldn't be possible.
+                        </p>
+                    </div>
                 </div>
             </div>
             <div className="section MTT div">
