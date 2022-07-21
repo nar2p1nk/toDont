@@ -1,6 +1,5 @@
 import './style/home.css';
 import {FiUser,FiLayers,FiHeadphones} from 'react-icons/fi';
-import {BsBrush} from 'react-icons/bs';
 
 const Home = () => {
     return (
