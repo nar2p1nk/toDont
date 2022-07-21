@@ -55,19 +55,13 @@
     align-items: center;
 }
 
-.card{
-    width: 30%;
-    height: 65%;
-    border-radius: 10px;
-    border: 1px solid white;
-}
-
 .card.features{
     width: 32%;
     height: 80%;
     border:none;
     text-align: center;
 }
+
 
 .icon-div{
     display: flex;
@@ -84,14 +78,6 @@
 }
 
 
-.MTT.content{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
 @media only screen and (max-width: 750px){
     .landing.description{
         width: 80%;
@@ -101,13 +87,6 @@
     }
     .card.features{
         width: 70%;
-    }
-    .MTT.content{
-    flex-direction: column;
-    align-items: center;
-    }
-    .MTT.card{
-        width: 50%;
     }
 }
 

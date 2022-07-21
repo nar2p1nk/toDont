@@ -1,5 +1,6 @@
 import './style/home.css';
 import {FiUser,FiLayers,FiHeadphones} from 'react-icons/fi';
+import {BsBrush} from 'react-icons/bs';
 
 const Home = () => {
     return (
@@ -51,13 +52,6 @@ const Home = () => {
                             (made by me), without me this wouldn't be possible.
                         </p>
                     </div>
-                </div>
-            </div>
-            <div className="section MTT div">
-                <div className="MTT content">
-                    <div className="MTT card designer"></div>
-                    <div className="MTT card Front-developer"></div>
-                    <div className="MTT card back-developer"></div>
                 </div>
             </div>
         </div>
