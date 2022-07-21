@@ -1,6 +1,6 @@
 import './style/home.css';
 import {FiUser,FiLayers,FiHeadphones} from 'react-icons/fi';
-
+import {Link} from 'react-router-dom';
 const Home = () => {
     return (
         <div class="homepage">
@@ -12,7 +12,9 @@ const Home = () => {
                     you made a highly complex glorified "to-Don't" web app with beautiful
                     design(i think) as a second big project.
                 </p>
-                <button className="landing button">Check it out now!</button>
+                <button className="landing button">
+                    <Link to='/login'>Check it out now!</Link>
+                </button>
             </div>
             </div>
             <div className="section features div">

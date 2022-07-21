@@ -13,12 +13,10 @@ function App() {
     <BrowserRouter>
       <Header/>
       <Routes>
-        <Route path='/home' element={<Home/>} />
-        <Route path='/' element={<Main/>} />
+        <Route path='/' element={<Home/>} />
+        <Route path='/todont' element={<Main/>} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/login' element={<Login />}/>
-        <Route path='/app' element=''/>
-        <Route path='/about'/>
       </Routes>
     </BrowserRouter>
   );
