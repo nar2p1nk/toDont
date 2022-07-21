@@ -23,7 +23,7 @@ const Register = () => {
 
     const PostForm = (e) => {
         e.preventDefault()
-        axios.post('http://127.0.0.1:8080/login',{
+        axios.post('/signup',{
             username:username,
             password:password
         })

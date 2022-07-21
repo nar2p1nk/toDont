@@ -10,7 +10,7 @@ const cors = require('cors');
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(cors())
+//app.use(cors())
 
 const secure = expressjwt({secret:'gila',algorithms:['HS256']});
 
