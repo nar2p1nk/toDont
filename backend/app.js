@@ -20,7 +20,16 @@ const secure = expressjwt({secret:'gila',algorithms:['HS256']});
 
 
 app.post('/signup',(req,res)=>{
-    model.createUser(req.body.username,req.body.password);
+    const user = [req.body.username,req.body.password];
+    if(user[0].length === 0){
+        res.json({errMessage:'Please enter a username'})
+        return;
+    }
+    if(user[1].length === 0){
+        res.json({errMessage:'Please enter password'});
+        return;
+    }
+    model.createUser(user[0],user[1]);
     res.json({'user has been created':req.body.username});
 })
 

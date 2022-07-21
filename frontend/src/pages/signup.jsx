@@ -22,6 +22,8 @@ const Register = () => {
     }
 
     const PostForm = (e) => {
+
+
         e.preventDefault()
         axios.post('/signup',{
             username:username,
@@ -32,11 +34,7 @@ const Register = () => {
                     setErrorMessage(res.data.errMessage)
                     console.log(errorMessage)
                 }
-                if(res.data.token){
-                    console.log(res.data.token)
-                    sessionStorage.setItem('jwtToken', res.data.token)
-                    navigate('/')
-                }
+                    navigate('/login')
             })
             .catch((err)=>{console.log(err)})
 
@@ -84,7 +82,10 @@ const Register = () => {
                         value={password}
                     />
                 </div>
-                <span className='signup'>got dick? <Link to='/login' className='signup link'>Login now!</Link></span>
+                <span className='signup'>
+                    got dick?
+                <Link to='/login' className='signup link'> Login now!</Link>
+                </span>
                 <button
                     type='submit'
                     value='submit'
