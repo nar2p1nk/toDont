@@ -17,12 +17,12 @@ app.use(express.static(path.join(__dirname,'frontend/build')));
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static(path.join(__dirname, 'frontend/build')));
     app.get('*', (req,res)=>{
-        res.sendFile(path.join(__dirname = 'frontend/build/index.html'));
+        res.sendFile('frontend/build/index.html',{root:__dirname});
     })
 }
 
 app.get('/',(req,res)=>{
-    res.sendFile(path.join(__dirname+'/frontend/public/index.html'))
+    res.sendFile('/frontend/public/index.html',{ root: __dirname})
 })
 
 
