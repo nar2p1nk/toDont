@@ -2,9 +2,14 @@
   "name": "todont",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "frontend-install": "npm install --prefix frontend",
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "frontend": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\""
   },
   "keywords": [],
   "author": "",
@@ -13,6 +18,7 @@
     "bcrypt": "^5.0.1",
     "better-sqlite3": "^7.5.0",
     "body-parser": "^1.19.2",
+    "concurrently": "^7.3.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "ejs": "^3.1.6",
@@ -24,6 +30,7 @@
     "jwt-simple": "^0.5.6",
     "passport": "^0.5.2",
     "passport-jwt": "^4.0.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "react-icons": "^4.4.0"
   }
 }

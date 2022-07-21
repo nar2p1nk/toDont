@@ -1,5 +1,4 @@
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
 const express = require('express');
 require('./auth')
 const expressjwt = require('express-jwt');
@@ -10,21 +9,20 @@ const path = require('path');
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
-app.use(cookieParser());
 
 const secure = expressjwt({secret:'gila',algorithms:['HS256']});
 
-app.use(express.static(path.join(__dirname,'client/build')));
+app.use(express.static(path.join(__dirname,'frontend/build')));
 
 if(process.env.NODE_ENV === 'production'){
-    app.use(express.static(path.join(__dirname, 'client/build')));
+    app.use(express.static(path.join(__dirname, 'frontend/build')));
     app.get('*', (req,res)=>{
-        res.sendFile(path.join(__dirname = 'client/build/index.html'));
+        res.sendFile(path.join(__dirname = 'frontend/build/index.html'));
     })
 }
 
-app.get('*',(req,res)=>{
-    res.sendFile(path.join(__dirname+'/client/public/index.html'))
+app.get('/',(req,res)=>{
+    res.sendFile(path.join(__dirname+'/frontend/public/index.html'))
 })
 
 
@@ -54,11 +52,6 @@ app.get(
         res.json(req.user)
 })
 
-//app.get('/todo',
-//    secure,
-//    (req,res)=>{
-//        res.redirect('/todo/' + req.user.id)
-//})
 
 app.get('/todo/:userId',
     secure,
@@ -110,10 +103,6 @@ app.get('/header',
 )
 
 
-app.get('/cookie',
-    secure,
-    (req,res)=>{res.json(req.cookies)}
-)
 
 
 app.listen(8080,()=>{
