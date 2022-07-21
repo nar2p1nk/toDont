@@ -21,7 +21,9 @@ if(process.env.NODE_ENV === 'production'){
     })
 }
 
-app.get('/',(req,res)=>{
+
+
+app.get('*',(req,res)=>{
     res.sendFile(path.join('/frontend/public/index.html',{root:__dirname}))
 })
 
