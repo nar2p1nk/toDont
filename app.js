@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname,'frontend/build')));
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static(path.join(__dirname, 'frontend/build/static')));
     app.get('*', (req,res)=>{
-        res.sendFile(path.join(__dirname = '/rontend/build/index.html'));
+        res.sendFile(path.join(__dirname = '/frontend/build/index.html'));
     })
 }
 
