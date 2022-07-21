@@ -1,0 +1,50 @@
+@keyframes changeTextColor{
+    from{color:white;}
+    to{color:#352D68;}
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+.nav{
+    width: 100%;
+    height: max-content;
+    overflow: hidden;
+    position: fixed;
+    z-index: 2;
+    padding: 5px 0 10px 0;
+    background-color: transparent;
+}
+
+.title{
+    font-size: 30px;
+    float: left;
+    margin: 4px 0 0 50px;
+}
+
+
+.navbar{
+    height: max-content;
+    display: flex;
+    float: right;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-right:50px;
+}
+
+.nav-item{
+    font-size: 20px;
+    font-weight: normal;
+    padding: 10px ;
+    margin: 0 5px;
+    transition: 300ms;
+    animation: faded 500ms;
+}
+
+.nav-item:hover{
+    color:#352D68
+}
+
+

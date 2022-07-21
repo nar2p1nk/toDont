@@ -5,18 +5,27 @@ require('./auth')
 const expressjwt = require('express-jwt');
 const model = require('./model');
 const app = express();
-const cors = require('cors');
+
+const path = require('path');
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(cookieParser());
-//app.use(cors())
 
 const secure = expressjwt({secret:'gila',algorithms:['HS256']});
 
+app.use(express.static(path.join(__dirname,'client/build')));
 
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static(path.join(__dirname, 'client/build')));
+    app.get('*', (req,res)=>{
+        res.sendFile(path.join(__dirname = 'client/build/index.html'));
+    })
+}
 
-
+app.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname+'/client/public/index.html'))
+})
 
 
 app.post('/signup',(req,res)=>{

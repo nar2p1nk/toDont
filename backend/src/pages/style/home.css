@@ -1,0 +1,92 @@
+.homepage{
+    height: 100%;
+    width: 100%;
+}
+
+.section{
+    height: 700px;
+}
+
+.landing.div{
+    text-align: center;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items:  center;
+    background-image: url('../../images/pexels-pixabay-355465.jpg');
+    background-size: cover;
+}
+
+.landing.content{
+    margin-bottom: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.landing.text{
+    font-size: 6vw;
+    text-decoration: underline;
+    margin: 0;
+}
+
+.landing.description{
+    width: 60%;
+    font-size: 3vh;
+}
+
+.landing.button{
+    height: 40px;
+    border-radius: 10px;
+}
+
+
+.section.features.div{
+    height: auto;
+    margin:30px 0;
+}
+
+.features.content{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.card.features{
+    width: 32%;
+    height: 80%;
+    border:none;
+    text-align: center;
+}
+
+.icon-div{
+    display: flex;
+    justify-content: center;
+}
+
+.Fpara{
+    min-height: 120px;
+}
+
+.icon{
+    height: 100px;
+    width: 100px;
+}
+
+
+@media only screen and (max-width: 750px){
+    .landing.description{
+        width: 80%;
+    }
+    .features.content{
+        flex-direction: column;
+    }
+    .card.features{
+        width: 70%;
+    }
+}
+
+
