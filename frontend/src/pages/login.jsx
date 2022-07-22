@@ -35,7 +35,7 @@ const Login = () => {
                 if(res.data.token){
                     console.log(res.data.token)
                     sessionStorage.setItem('jwtToken', res.data.token)
-                    navigate('/')
+                    navigate('/toDont')
                 }
             })
             .catch((err)=>{console.log(err)})

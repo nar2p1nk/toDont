@@ -21,8 +21,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    animation-name: faded;
-    animation-duration: 100ms;
+    animation-name: faded 200ms;
 }
 
 .completed, .uncompleted{
@@ -130,6 +129,6 @@
     border-bottom:solid 1px white;
     display: flex;
     flex-direction: row;
-
+    animation: faded 1s;
 }
 

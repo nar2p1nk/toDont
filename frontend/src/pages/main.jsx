@@ -45,7 +45,7 @@ useEffect(()=>{
         const decodedToken = jwtDecode(token);
         e.preventDefault()
         console.log('post',todoText)
-        axios.post('http://localhost:8080/todo/create',
+        axios.post('/todo/create',
             {
                 todo:todoText,
                 userId:decodedToken.id,
@@ -79,7 +79,7 @@ useEffect(()=>{
         if(todosToComplete.length < 1){console.log('todosToComplete is empty'); return;}
         const decodedToken = jwtDecode(token);
         console.log(todosToComplete);
-        axios.post('http://localhost:8080/todo/complete',
+        axios.post('/todo/complete',
             {list:todosToComplete,userId:decodedToken.id},
             {headers:{Authorization:'Bearer ' + token }}
         )
@@ -90,7 +90,7 @@ useEffect(()=>{
         if(todosToDelete < 1){console.log('todosToDelete is empty');return;}
         const decodedToken = jwtDecode(token);
         console.log(todosToDelete);
-        axios.post('http://localhost:8080/todo/delete',
+        axios.post('/todo/delete',
             {list:todosToDelete,userId:decodedToken.id},
             {headers:{Authorization:'Bearer ' + token}}
         )

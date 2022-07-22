@@ -99,10 +99,6 @@ app.post('/todo/delete',
     }
 )
 
-app.get('/header',
-    secure,
-    (req,res)=>{res.json(req.header('Authorization'))}
-)
 
 
 
