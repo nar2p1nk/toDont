@@ -83,7 +83,7 @@ const Register = () => {
                     />
                 </div>
                 <span className='signup'>
-                    got dick?
+                    already have an account?
                 <Link to='/login' className='signup link'> Login now!</Link>
                 </span>
                 <button

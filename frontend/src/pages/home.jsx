@@ -6,7 +6,7 @@ const Home = () => {
         <div class="homepage">
             <div className='section landing div'>
             <div className='landing content'>
-            <p className='landing text'>welcome to to-Don't!</p>
+            <p className='landing title'>welcome to to-Don't!</p>
                 <p className="landing description">
                     Where instead of making a simple todo app for your first project,
                     you made a highly complex glorified "to-Don't" web app with beautiful
