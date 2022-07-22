@@ -16,6 +16,7 @@ a{
     z-index: 2;
     padding: 5px 0 10px 0;
     background-color: transparent;
+    animation: faded 1000ms;
 }
 
 .title{

@@ -25,15 +25,17 @@
     flex-direction: column;
 }
 
-.landing.text{
+.landing.title{
     font-size: 6vw;
     text-decoration: underline;
     margin: 0;
+    animation: faded 1500ms;
 }
 
 .landing.description{
     width: 60%;
     font-size: 3vh;
+    animation: faded 2000ms;
 }
 
 .landing.button{
